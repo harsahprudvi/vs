@@ -1,0 +1,23 @@
+{% extends 'base1.html' %}
+{% block main %}
+    <h2 class="text-center">Result</h2>
+    <table class="table table-bordered table-sm text-center">
+    <thead>
+        <tr>
+        <th>Candidate Name</th>
+        <th>Candidate Position</th>
+        <th>Total Vote</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in obj %}
+        <tr>
+            <td>{{ i.name }}</td>
+            <td>{{ i.position }}</td>
+            <td>{{ i.total_vote }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>        
+    <button class="btn btn-primary" style="margin-left: 100px;"><a href="{% url 'vs:index' %}" style=" color:white">Home</a></button>
+{% endblock %}

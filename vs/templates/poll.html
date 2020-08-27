@@ -1,0 +1,25 @@
+{% extends 'base1.html' %}
+
+{% block main %}
+<style>
+  .card{
+    display:inline-block;
+    margin: 50px 20px;
+  }
+</style>
+<h2>Available Position For Vote</h2>
+  <ul>
+    {% for i in obj %}
+    <div class="card" style="width: 13% ;">
+      {% load static %} 
+      <img src="{% static 'images/logo1.jpg' %} " class="card-img-top" alt="Election {{i.id  }}"/>
+      <div class="card-body">
+        <h5>Election for:</h5>
+        <a href="{% url 'vs:candidate' i.id %}">{{i.title}}</a>
+      </div>
+    </div>
+      {% empty %} 
+        <p>No Positions Available</p>
+    {% endfor %}
+  </ul>
+{% endblock %}
